@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "85b8b2b0-f1a2-4e33-a172-066bd7f2abfc",
+		"_postman_id": "3698b96a-dae7-4393-a279-eec6129209ba",
 		"name": "Bookshelf API Test",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19873092"
 	},
 	"item": [
 		{
@@ -75,7 +76,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Add Book With Complete Data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{newName}}\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": {{newPageCount}},\r\n    \"readPage\": {{newReadPage}},\r\n    \"reading\": {{newReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:03:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil ditambahkan\",\n    \"data\": {\n        \"bookId\": \"xZ4wS4I2uR-4mUVz\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Add Book Without Name",
@@ -136,7 +204,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Add Book Without Name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": {{newPageCount}},\r\n    \"readPage\": {{newReadPage}},\r\n    \"reading\": {{newReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "73"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:03:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Gagal menambahkan buku. Mohon isi nama buku\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Add Book with Page Read More Than Page Count",
@@ -197,7 +332,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Add Book with Page Read More Than Page Count",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{newName}}\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": 80,\r\n    \"readPage\": 90,\r\n    \"reading\": {{newReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "101"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:04:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Get All Books",
@@ -254,9 +456,16 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:{{port}}/books",
 					"protocol": "http",
@@ -269,7 +478,73 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Get All Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "114"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:04:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"xZ4wS4I2uR-4mUVz\",\n                \"name\": \"Buku A\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Get Detail Books With Correct Id",
@@ -360,7 +635,70 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Get Detail Books With Correct Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books/{{bookId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "324"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:04:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"book\": {\n            \"id\": \"xZ4wS4I2uR-4mUVz\",\n            \"name\": \"Buku A\",\n            \"year\": 2010,\n            \"author\": \"John Doe\",\n            \"summary\": \"Lorem ipsum dolor sit amet\",\n            \"publisher\": \"Dicoding Indonesia\",\n            \"pageCount\": 100,\n            \"readPage\": 25,\n            \"finished\": false,\n            \"reading\": false,\n            \"insertedAt\": \"2022-06-02T06:03:53.042Z\",\n            \"updatedAt\": \"2022-06-02T06:03:53.042Z\"\n        }\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Get Detail Books With Invalid Id",
@@ -412,7 +750,66 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Get Detail Books With Invalid Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books/xxxxx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"xxxxx"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "50"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:04:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Buku tidak ditemukan\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Update Book With Complete Data",
@@ -508,7 +905,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Update Book With Complete Data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{updateName}}\",\r\n    \"year\": {{updateYear}},\r\n    \"author\": \"{{updateAuthor}}\",\r\n    \"summary\": \"{{updateSummary}}\",\r\n    \"publisher\": \"{{updatePublisher}}\",\r\n    \"pageCount\": {{updatePageCount}},\r\n    \"readPage\": {{updateReadPage}},\r\n    \"reading\": {{updateReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books/{{bookId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "57"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 06:04:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil diperbarui\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Update Book Without Name",
@@ -570,7 +1035,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Update Book Without Name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": {{updateYear}},\r\n    \"author\": \"{{updateAuthor}}\",\r\n    \"summary\": \"{{updateSummary}}\",\r\n    \"publisher\": \"{{updatePublisher}}\",\r\n    \"pageCount\": {{updatePageCount}},\r\n    \"readPage\": {{updateReadPage}},\r\n    \"reading\": {{updateReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books/{{bookId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "73"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:20:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Gagal memperbarui buku. Mohon isi nama buku\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Update Book With Page Read More Than Page Count",
@@ -632,7 +1165,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Update Book With Page Read More Than Page Count",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{updateName}}\",\r\n    \"year\": {{updateYear}},\r\n    \"author\": \"{{updateAuthor}}\",\r\n    \"summary\": \"{{updateSummary}}\",\r\n    \"publisher\": \"{{updatePublisher}}\",\r\n    \"pageCount\": 80,\r\n    \"readPage\": 90,\r\n    \"reading\": {{updateReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books/{{bookId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "101"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:21:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Update Book with Invalid Id",
@@ -693,7 +1294,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Update Book with Invalid Id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{updateName}}\",\r\n    \"year\": {{updateYear}},\r\n    \"author\": \"{{updateAuthor}}\",\r\n    \"summary\": \"{{updateSummary}}\",\r\n    \"publisher\": \"{{updatePublisher}}\",\r\n    \"pageCount\": {{updatePageCount}},\r\n    \"readPage\": {{updateReadPage}},\r\n    \"reading\": {{updateReading}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books/xxxxx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"xxxxx"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "72"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:21:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Gagal memperbarui buku. Id tidak ditemukan\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Delete Book with Correct Id",
@@ -753,7 +1422,66 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Delete Book with Correct Id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books/{{bookId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "54"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:21:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil dihapus\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[Mandatory] Delete Book with Invalid Id",
@@ -805,7 +1533,66 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Mandatory] Delete Book with Invalid Id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books/xxxxx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books",
+								"xxxxx"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "68"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:21:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Buku gagal dihapus. Id tidak ditemukan\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Add Reading and Finished Book",
@@ -844,7 +1631,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add Reading and Finished Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{newName}}\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": 100,\r\n    \"readPage\": 100,\r\n    \"reading\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:21:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil ditambahkan\",\n    \"data\": {\n        \"bookId\": \"OgFA-PaHmX3aKOmz\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Add Reading and Unfinished Book with \"Dicoding\" Name",
@@ -883,7 +1737,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add Reading and Unfinished Book with \"Dicoding\" Name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kelas Dicoding\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": 100,\r\n    \"readPage\": 99,\r\n    \"reading\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:22:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil ditambahkan\",\n    \"data\": {\n        \"bookId\": \"GRErDLGbMVsDO5dJ\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Add Unreading Books and Unfinished Book \"Dicoding\" Name",
@@ -922,7 +1843,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add Unreading Books and Unfinished Book \"Dicoding\" Name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dicoding Jobs\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": 100,\r\n    \"readPage\": 0,\r\n    \"reading\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:22:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil ditambahkan\",\n    \"data\": {\n        \"bookId\": \"IJmOh9I_yZ1cEQNY\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Add Unreading Books and Unfinished Book",
@@ -961,7 +1949,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add Unreading Books and Unfinished Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{newName}}\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": 100,\r\n    \"readPage\": 0,\r\n    \"reading\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:22:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Buku berhasil ditambahkan\",\n    \"data\": {\n        \"bookId\": \"zBVhIpn_xfoUVUwG\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Optional] Get All Reading Books",
@@ -1048,7 +2103,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Optional] Get All Reading Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books?reading=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "reading",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "197"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:22:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"OgFA-PaHmX3aKOmz\",\n                \"name\": \"Buku A\",\n                \"publisher\": \"Dicoding Indonesia\"\n            },\n            {\n                \"id\": \"GRErDLGbMVsDO5dJ\",\n                \"name\": \"Kelas Dicoding\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Optional] Get All Unreading Books",
@@ -1135,7 +2258,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Optional] Get All Unreading Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books?reading=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "reading",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "196"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:23:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"IJmOh9I_yZ1cEQNY\",\n                \"name\": \"dicoding Jobs\",\n                \"publisher\": \"Dicoding Indonesia\"\n            },\n            {\n                \"id\": \"zBVhIpn_xfoUVUwG\",\n                \"name\": \"Buku A\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Optional] Get All Finished Books",
@@ -1213,7 +2404,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Optional] Get All Finished Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books?finished=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "finished",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "114"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:23:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"OgFA-PaHmX3aKOmz\",\n                \"name\": \"Buku A\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Optional] Get All Unfinished Books",
@@ -1291,7 +2550,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Optional] Get All Unfinished Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books?finished=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "finished",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "279"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:23:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"GRErDLGbMVsDO5dJ\",\n                \"name\": \"Kelas Dicoding\",\n                \"publisher\": \"Dicoding Indonesia\"\n            },\n            {\n                \"id\": \"IJmOh9I_yZ1cEQNY\",\n                \"name\": \"dicoding Jobs\",\n                \"publisher\": \"Dicoding Indonesia\"\n            },\n            {\n                \"id\": \"zBVhIpn_xfoUVUwG\",\n                \"name\": \"Buku A\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "[Optional] Get All Books Contains \"Dicoding\" Name",
@@ -1391,7 +2718,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[Optional] Get All Books Contains \"Dicoding\" Name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/books?name=Dicoding",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dicoding"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "204"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Jun 2022 07:23:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"books\": [\n            {\n                \"id\": \"GRErDLGbMVsDO5dJ\",\n                \"name\": \"Kelas Dicoding\",\n                \"publisher\": \"Dicoding Indonesia\"\n            },\n            {\n                \"id\": \"IJmOh9I_yZ1cEQNY\",\n                \"name\": \"dicoding Jobs\",\n                \"publisher\": \"Dicoding Indonesia\"\n            }\n        ]\n    }\n}"
+				}
+			]
 		}
 	],
 	"event": [
