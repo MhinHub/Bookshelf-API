@@ -1,0 +1,22 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "Submission for the bookshelf-api challenge Dicoding - Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
+  "scripts": {
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src/"
+  },
+  "keywords": [],
+  "author": "Muhaemin Iskandar",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "nanoid": "^3.1.22"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}
